@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dmenu_run  -i -l 26  \
+  -fn 12x24 \
+  -nf yellow -nb black \
+  -sf black -sb white

@@ -1,0 +1,26 @@
+/* XPM */
+static char *grey-max[] = {
+/* width height num_colors chars_per_pixel */
+"    14    14        5            1",
+/* colors */
+". c #a3a3a3",
+"# c #bdbdbd",
+"a c #e7e7e7",
+"b c #d4d4d4",
+"c c #b2b2b2",
+/* pixels */
+"........######",
+".aaaaaaaa#####",
+".aabb##.a#####",
+".abb#b#.a.....",
+".ab#b##.aaaaaa",
+".a#b##c.abbb.a",
+".a##ccc.abbc.a",
+".a......ab#c.a",
+"#aaaaaaaa#bc.a",
+"###.abbb#b#c.a",
+"###.abb#b##c.a",
+"###.abcccccc.a",
+"###.a........a",
+"###.aaaaaaaaaa"
+};

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#xsetroot -cursor_name left_ptr
+
+# Set classic root window cursor
+xsetroot -cursor_name X_cursor
+
+setxkbmap -layout "us,lt,ru" -option "grp:alt_shift_toggle"
+
+xrdb -merge ~/.Xresources
+
+/usr/bin/lxpolkit &
+
+# Enable/disable clock/meters
+METERS=1
+
+# Clock/Meter style
+SMALLMETERS=0
+
+# Background Colour
+#ROOTCOL="#607080"
+#ROOTCOL="teal"
+#ROOTCOL="deepskyblue4"
+#ROOTCOL="steelblue4"
+#ROOTCOL="gray50"
+#ROOTCOL="#0D0D0D"
+ROOTCOL="DodgerBlue4"
+
+# Background Image, trumps ROOTCOL
+#ROOTPIC="bluebak.png"
+
+# Clock and Load background
+BGCOL="gray"
+
+# Clock and Load foreground
+FGCOL="black"
+
+# xclock width
+CLOCKWIDTH="120"
+CLOCKWIDTH="119"
+
+xsetroot -solid "$ROOTCOL"
+#hsetroot -fill ~/.config/vtwm/wallpapers/forest.jpg
+
+if [ $METERS = 1 ]; then
+  if [ $SMALLMETERS = 1 ]; then
+    # Clock: Small
+    exec xclock -digital -strftime " %H:%M" -face "Terminus:size=17" \
+    -bg "$BGCOL" -fg "$FGCOL" -geometry 90x30-7+4 -padding 5 &
+ else
+    # Clock: Large
+ CLOCKGEOM="x30-0+0"
+exec xclock -digital -strftime "   %H:%M" -face "Liberation Mono:size=13" \
+-bg "$BGCOL" -fg "$FGCOL" -geometry "$CLOCKWIDTH$CLOCKGEOM" -padding 5 &
+ fi
+fi
+
+xbanish &
+#x-terminal-emulator -g 35x8+4+4 -name clock -title clock -e tty-clock -C3 &
+#sleep 2
+
+xautolock -time 10 -locker "slock" &
+
+#exec vtwm -m -f "$HOME/.config/vtwm/vtwm-env"
+#exec fvwm
+#exec vtwm
+#exec mwm
+exec ctwm

@@ -1,0 +1,58 @@
+#The WSM is part of the Motif demos package
+#I have the source available at ftp://aic.ml.org/pub/linux/motif-demos.tar.gz
+#
+Menu DefaultRootMenu
+{
+        "Main menu"	        f.title
+        "Terms"                 f.menu terms
+        separator               f.separator
+        "Programs"              f.menu progs
+        separator               f.separator
+        "Refresh"               f.refresh
+        "Pack Icons"            f.pack_icons
+        "Toggle Behavior..."    f.set_behavior
+         no-label               f.separator
+        "Restart..."            f.restart
+        "Quit..."               f.quit_mwm
+}
+
+
+Menu progs
+{
+        "Programs"              f.title
+        "Firefox"               f.exec "firefox-esr"
+        "Mail"                  f.exec "thunderbird"
+	"Qbittorrent"		f.exec "qbittorrent"
+        "Volume"                f.exec "pavucontrol"
+        "Nedit"                 f.exec "nedit"
+        "Gvim"               	f.exec "gvim"
+}
+
+Menu terms
+{
+        "Terms"                 f.title
+        "xterm"                 f.exec "xterm"
+        "Urxvt"                 f.exec "urxvt"
+        "Run"                   f.exec "dmenu_run"
+}
+
+#
+# button binding descriptions
+#
+
+Buttons DefaultButtonBindings
+{
+	<Btn1Down>		frame|icon	 	 f.raise
+	<Btn3Down>		frame|icon	  	f.lower
+	<Btn1Down>		root			f.menu  DefaultRootMenu
+	<Btn2Down>	 	root			f.menu  progs
+	<Btn3Down>		root			f.menu  DefaultRootMenu
+	Meta<Btn1Down>		window|icon		f.move
+	Meta<Btn2Down>		window|icon		f.resize
+	Meta Shift<Btn1Down>	window|icon		f.minimize
+	Meta Shift<Btn2Down>	window|icon		f.focus_color
+	Meta Shift<Btn3Down>	window|icon		f.post_wmenu
+	Meta<Btn1Down>		root			f.track_pan
+	Meta<Btn2Down>		root			f.track_pan
+}
+

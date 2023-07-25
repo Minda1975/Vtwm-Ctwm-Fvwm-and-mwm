@@ -1,0 +1,236 @@
+#
+# Personal .vtwmrc Willem Hendriks (NL)
+#
+# Control + space 	= launche xterm
+#
+
+AutoPan 100
+AutoPanBorderWidth 0
+NaturalAutopanBehavior
+AutoPanWarpWithRespectToRealScreen 65
+PanDistanceY 100
+PanDistanceX 100
+SnapRealScreen
+PanResistance 0
+IconifyByUnmapping
+
+OpaqueMove
+NoTitleHighlight
+DecorateTransients
+DontMoveOff
+MaxWindowSize "1400x1050"
+RandomPlacement
+
+NoCaseSensitive
+NoGrabServer
+
+AutoRaiseDelay 0
+AutoRelativeResize
+MoveDelta 0
+
+DeiconifyToScreen
+ResizeRegion "NorthEast"
+RestartPreviousState
+UnknownIcon "monitor.xpm"
+WarpCursor
+
+ShowIconManager
+IconManagerGeometry "+0+117"
+SortIconManager
+IconManagerGeometry "500x19+1-20" 4
+
+FixManagedVirtualGeometries
+FixTransientVirtualGeometries
+VirtualDesktop			"5x2-0-0" 16
+ShallowReliefWindowButton
+
+BorderWidth             6
+BorderBevelWidth        1
+ButtonBevelWidth        0
+IconManagerBevelWidth   1
+InfoBevelWidth          2
+MenuBevelWidth          1
+TitleBevelWidth         1
+ButtonIndent		0
+ButtonBevelWidth	0
+TitleButtonBorderWidth  0
+FramePadding		4
+
+ClearBevelContrast      40
+DarkBevelContrast       40
+Icons
+{
+	"xterm"		"monitor.xpm"
+}
+
+NoTitle
+{
+	"VTWM Icon Manager"
+        "xclock"
+	"VTWM Desktop"
+}
+
+NailedDown
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+IconManagerDontShow
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+DontShowInDisplay
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+DontShowInVtwmWindows
+{
+	"VTWM Icon Manager"
+	"VTWM Desktop"
+	"xclock"
+	"xload"
+	"xeyes"
+}
+
+AutoRaise
+{
+}
+
+Color
+{
+	DefaultBackground		"maroon"
+	DefaultForeground		"gray85"
+	BorderColor			"grey70"
+	BorderTileBackground		"gray60"
+	BorderTileForeground		"gray60"
+	DoorBackground			"maroon"
+	DoorForeground			"gray85"
+	TitleBackground			"maroon"
+	TitleForeground			"gray85"
+	MenuBackground			"maroon"
+	MenuForeground			"gray85"
+	MenuTitleBackground		"gray70"
+	MenuTitleForeground		"maroon"
+	IconBackground			"maroon"
+	IconForeground			"gray85"
+	IconBorderColor			"gray85"
+	IconManagerBackground		"maroon"
+	IconManagerForeground		"gray85"
+	VirtualBackground		"maroon"
+	VirtualForeground		"black"
+	DesktopDisplayBackground	"#4d5d0d"
+	DesktopDisplayForeground	"#fdfd7d"
+}
+#
+# Fonts
+#
+
+ResizeFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+TitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+MenuTitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
+
+#
+# Titlebar buttons
+#
+
+NoDefaultTitleButtons
+
+LeftTitleButton ":xpm:bar" = f.delete
+RightTitleButton ":xpm:dot" = f.iconify
+RightTitleButton ":xpm:zoom" = f.resize
+
+#
+# Functions and Bindings
+#
+
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+Button1 = : root : f.menu "defops"
+Button2 = : root : f.menu "VTWM Windows"
+Button3 = : root : f.menu "winops"
+
+Button1 = m : window|icon : f.function "move-or-lower"
+Button2 = m : window|icon : f.resize
+Button3 = m : window|icon : f.resize
+
+Button1 = : title : f.function "move-or-raise"
+Button2 = : title : f.raiselower
+
+Button1 = : icon : f.function "move-or-iconify"
+Button2 = : icon : f.iconify
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+Button3 = : iconmgr : f.raise
+
+Button1 = : virtual | desktop : f.movescreen
+Button2 = : virtual | desktop : f.movescreen
+
+"Left"  = : root : f.panleft	"100"
+"Right"	= : root : f.panright	"100"
+
+# Control + Space = new xterm 
+"space" = c : root : f.exec "xterm &"
+"space" = c : virtual | desktop : f.exec "xterm &"
+"space" = c : window : f.exec "xterm &"
+
+#
+# Menus
+#
+
+menu "defops"
+{
+"    VTWM    "	f.title
+"Run"           f.exec "~/script/dmenu_run_vertical &"
+"xterm"		f.exec "xterm &"
+"Firefox"	f.exec "firefox-esr &"
+""		f.nop
+"Mail"	        f.exec "thunderbird &"
+""		f.nop
+"Restart"	f.restart
+"Exit"		f.quit
+}
+
+
+menu "winops"
+{
+"   Window   "	f.title
+"Identify"	f.identify
+""		f.nop
+"AutoRaise"	f.autoraise
+"Iconify"	f.iconify
+"Resize"	f.resize
+"Move"		f.move
+""		f.nop
+"Raise"		f.raise
+"Lower"		f.lower
+"Nail"		f.nail
+"Focus"		f.focus
+""		f.nop
+"Fullzoom"	f.fullzoom
+"Horizoom"	f.horizoom
+"Vertzoom"	f.zoom
+""		f.nop
+"Kill"		f.destroy
+"Delete"	f.delete
+}
+

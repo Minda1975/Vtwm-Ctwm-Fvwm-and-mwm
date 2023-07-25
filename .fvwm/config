@@ -1,0 +1,397 @@
+# == FVWM 2 'Suspiciously Default-looking' config ==
+# (L) Carl Svensson, https://datagubbe.se/fvwm
+# 
+# Configured for X11 bitmap fonts.
+# To use TrueType fonts instead of bitmap ones, replace all font strings
+# with the xft syntax, E.G.:
+#   DefaultFont "xft:Arial:bold:size=12"
+#   WindowFont "xft:Arial:size=14"
+
+# == Set ImagePath ==
+# This is the path for images, UI pixmaps etc.
+ImagePath $HOME/.fvwm/icons:+
+
+# == Geometry Window ==
+# This is the window that shows geometry when moving/resizing windows,
+# so it's nice to have it big and clear for legibility.
+# Changes the default font - it's used for geometry window and overriden
+# everywhere else.
+DefaultFont "xft:Arial:bold:size=12"
+# Uncomment to hide geometry window for move action
+#HideGeometryWindow Move
+
+# == Set cursors ==
+# Classic "X" root cursor
+CursorStyle "ROOT" "X_cursor"
+
+# == Pager/Desktops ==
+# 2 x 2 desktops
+DeskTopSize 2 2
+# Allow moving windows between desktops, but with a bit of resistance.
+EdgeResistance 150
+Style * EdgeMoveDelay 150
+Style * EdgeMoveResistance 150
+# Never scroll to next desktop using mouse.
+EdgeScroll 0 0
+# Pager Look.
+*FvwmPagerBack #506070
+*FvwmPagerFore black
+*FvwmPagerHilight slategray
+*FvwmPagerFont none
+*FvwmPagerFont none
+*FvwmPagerGeometry 119x70-0+42
+*FvwmPagerLabel FvwmPager
+# Don't draw window titles in the pager.
+*FvwmPager: WindowLabelFormat ""
+*FvwmPager: SolidSeparators
+
+# == Set up icon manager ==
+*FvwmIconMan: Font "xft:Arial:bold:size=12"
+*FvwmIconMan: ManagerGeometry 1x0-0+122
+*FvwmIconMan: ButtonGeometry 119x0
+# Show just the window title in buttons.
+*FvwmIconMan: Format "%t"
+# Button Colors on the format ButtonKind State foreground background
+# See "man fvwmiconman" for more details.
+*FvwmIconMan: FocusButton Down black gray
+*FvwmIconMan: PlainButton Up black gray
+*FvwmIconMan: IconButton Up black gray
+*FvwmIconMan: SelectButton Down black gray
+*FvwmIconMan: IconAndSelectButton Down black gray
+*FvwmIconMan: FocusAndSelectButton Down black gray
+# Left-click deiconifies but it also raises and focuses
+# an uniconified window. Right click and middle click will
+# iconify or de-iconify.
+*FvwmIconMan: Action Mouse 1 N SendCommand Raise-and-Focus
+*FvwmIconMan: Sort Id
+# Show windows from all desktops at all times.
+*FvwmIconMan: Resolution Global
+*FvwmIconMan: DrawIcons True
+
+# == Icon handling ==
+# Turn off icons - the icon manager above is sufficient.
+Style * NoIcon
+# Override mini icons for FvwmIconMan.
+Style * MiniIcon "iconized.png"
+Style * EWMHMiniIconOverride
+
+# == Window colors and styles ==
+# Menu colors are set in menu style below.
+
+# Active Window Colors.
+ColorSet 16 fg Black, bg CadetBlue
+Style * HilightColorSet 16
+
+# Inactive Window Colors.
+ColorSet 17 fg Gainsboro, bg Gray40
+Style * Colorset 17
+
+# Window Font (used in title bars).
+WindowFont "xft:Arial:bold:size=12"
+
+# Decorate transient windows. A must for GTK apps' sub-windows.
+Style * DecorateTransient
+
+# Focus: Focus follows mouse (I.E. no click to focus).
+# SloppyFocus = Keep last focused window when cursor enters root window.
+# MouseFocus = Lose last focus and focus root when cursor enters root window.
+Style "*" SloppyFocus
+
+# Window titles to the left.
+TitleStyle LeftJustified
+
+# Decors and overrides.
+Style *             Title, Handles, !MWMFunctions, NoDecorHint
+Style *             DepressableBorder, HandleWidth 6, BorderWidth 6
+Style "FvwmIconMan" NoTitle, Sticky, WindowListSkip, NoHandles, NeverFocus
+Style "FvwmPager"   NoTitle, Sticky, WindowListSkip, NoHandles
+Style "xload"       NoTitle, Sticky, WindowListSkip, NoHandles
+Style "xclock"      NoTitle, Sticky, WindowListSkip, NoHandles
+Style Cell          NoTitle, NoHandles, BorderWidth 0, FPLenient
+Style "VIC-II"      NoTitle, NoHandles, BorderWidth 0, FPLenient
+Style "gnome-mpv"   NoTitle, NoHandles, BorderWidth 0, FPLenient
+Style "xmessage"    NoTitle, NoHandles, BorderWidth 0, FPLenient, WindowListSkip
+Style feh           NoTitle
+
+# == Menu styles ==
+
+# Colorset for menu titles.
+ColorSet 18 fg white, bg Gray40
+
+# Fast popups, filled submenu triangles, TWM-style titles.
+MenuStyle * Mwm, PopupImmediately, PopdownImmediately, PopupOffset 0 100
+MenuStyle * VerticalItemSpacing 1 1, VerticalTitleSpacing 1 1
+MenuStyle * HilightBack SteelBlue4, ActiveFore White,
+MenuStyle * Hilight3DOff, TrianglesUseFore, TrianglesSolid
+MenuStyle * TitleColorset 18, HilightTitleBack
+MenuStyle * BorderWidth 1, TitleUnderlines1, ItemFormat "  %l%>  "
+# Menu Font
+MenuStyle * Font "xft:Arial:bold:size=12"
+
+# == Various flags and styles ==
+# 250ms = Click.
+ClickTime 250
+
+# Enable solid window moving for all window sizes.
+OpaqueMoveSize -1
+
+# Emulate Motif Window Manager hints.
+Emulate Mwm
+
+# Window Placement: New windows are placed directly under the mouse pointer.
+Style "*" PositionPlacement UnderMouse
+
+# == Mouse bindings ==
+# Bind actions to window buttons.
+# Leftmost button (rectangle) opens window ops menu.
+# Double click on this closes window.
+Mouse 0 1 A Menu Window-Ops2 Close
+# Second rightmost button (small square) iconfies the window.
+Mouse 0 4 A Iconify
+# Rightmost button (big square) maximises the window vertically.
+Mouse 0 2 A Maximize 0 100
+
+
+# Listeners for root window (the "desktop").
+# Left click = Root Menu (app launcher).
+Mouse 1 R A Menu RootMenu
+# Right click = System Menu (syslog/sleep/quit).
+Mouse 3 R A Menu System-Menu Nop
+# Middle click = Window list.
+Mouse 2 R A WindowList
+
+# Middle click on border = Iconify.
+Mouse 2 FS A Iconify
+
+# Right click in border or on window title = raise or lower window.
+Mouse 3 TSIF A RaiseLower
+
+# Handle clicks in window title bar.
+# Left click = move, double click = maximize.
+Mouse 1 T A Maximize-or-Move
+# Middle click = Iconify.
+Mouse 2 T A Iconify
+
+# Mouse 1 + Win key = Move window (Good for undecorated windows).
+Mouse 1 W 4 Move-or-Raise
+
+# == Init (startup) function ==
+AddToFunc "InitFunction" I Module FvwmPager
+AddToFunc "InitFunction" I Module FvwmIconMan
+
+# == Restart function ==
+AddToFunc "RestartFunction" I Module FvwmPager
+AddToFunc "RestartFunction" I Module FvwmIconMan
+
+# == Window Handling Functions ==
+
+# Move and raise a window.
+AddToFunc Move-or-Raise
+ + I Raise
+ + M Move
+ + D Maximize
+
+# Resize and raise a window.
+AddToFunc Resize-or-Raise   
+ + I Raise
+ + M Resize
+ + D Lower
+
+# Maximize window on double-click in title bar.
+# On single click, focus and allow moving it.
+AddToFunc Maximize-or-Move
+ + D Maximize
+ + I Raise
+ + C Focus
+ + M Move
+
+# Raise and Focus window.
+AddToFunc Raise-and-Focus
+ + I Iconify Off
+ + I Raise
+ + I Focus
+
+# Sort of almost kind of Windows-ish Alt-Tab.
+AddToFunc TabSwitchNext
++ I WindowListFunc
+AddToFunc TabSwitchPrev
++ I Prev TabSwitchNext
+
+# Move Window + Cursor without entering move mode.
+# Couldn't get function args working here so one for each direction :-(
+# 30px move:
+AddToFunc WinAndCursLeft
+ + I Move w-30p w+0
+ + I CursorMove -30p 0
+AddToFunc WinAndCursRight
+ + I Move w+30p w+0
+ + I CursorMove +30p 0
+AddToFunc WinAndCursUp
+ + I Move w+0 w-30p
+ + I CursorMove 0 -30p
+AddToFunc WinAndCursDown
+ + I Move w+0 w+30p
+ + I CursorMove 0 +30p
+
+# 100px move:
+AddToFunc WinAndCursLeftS
+ + I Move w-100p w+0
+ + I CursorMove -100p 0
+AddToFunc WinAndCursRightS
+ + I Move w+100p w+0
+ + I CursorMove +100p 0
+AddToFunc WinAndCursUpS
+ + I Move w+0 w-100p
+ + I CursorMove 0 -100p
+AddToFunc WinAndCursDownS
+ + I Move w+0 w+100p
+ + I CursorMove 0 +100p
+
+# Resize Window + Move Cursor without entering resize mode.
+AddToFunc IncreaseWidth
+ + I Resize br w+50p w+0
+ + I CursorMove +50p 0
+AddToFunc DecreaseWidth
+ + I Resize br w-50p w+0
+ + I CursorMove -50p 0
+AddToFunc IncreaseHeight
+ + I Resize br w+0 w+50p
+ + I CursorMove 0 +50p
+AddToFunc DecreaseHeight
+ + I Resize br w+0 w-50p
+ + I CursorMove 0 -50p
+
+# == Keyboard bindings ==
+
+# Ignore Num Lock.
+IgnoreModifiers L25
+
+# Paging: Windows key + arrows moves to the
+# next desktop in the desired direction.
+Key Left  A 4 Scroll -100 0
+Key Right A 4 Scroll +100 +0
+Key Up    A 4 Scroll +0 -100
+Key Down  A 4 Scroll +0 +100
+
+# Alt-Tab like in MS Windows (-ish).
+Key Tab A M	WindowList Root c c CurrentAtEnd, IconifiedAtEnd, NoGeometry, NoDeskSort, SelectOnRelease Alt_L TabSwitchPrev
+Key Tab	A CM	WindowList Root c c CurrentAtEnd, IconifiedAtEnd, NoGeometry, OnlyListSkip, SelectOnRelease
+
+# Windows key + W shows "normal" window list which can be navigated
+# with arrow keys, window numbers etc.
+Key W A 4 WindowList Root
+
+# Windows key + Ctrl + Arrows to move mouse (and thus focus) to window,
+# but only within the current page.
+Key Up    A C4 Direction North (CurrentPage) WarpToWindow
+Key Down  A C4 Direction South (CurrentPage) WarpToWindow
+Key Left  A C4 Direction West  (CurrentPage) WarpToWindow
+Key Right A C4 Direction East  (CurrentPage) WarpToWindow
+
+# Windows key + page up/page down for volume.
+Key Prior   A 4 Exec ~/script/dmenu_run_vertical &
+
+# Win + F1 = Maximize active window horizontally + vertically.
+Key F1 A 4 Maximize
+
+# Win + F2 = Maximize active window vertically.
+Key F2 A 4 Maximize 0 100
+
+# Activate move window mode: Win + m.
+Key m A 4 Move
+
+# Activate resize window mode: Win + r.
+Key r A 4 Resize
+
+# Move active window with Windows key + Alt + Arrows (30px).
+Key Left  A 14 WinAndCursLeft
+Key Right A 14 WinAndCursRight
+Key Up    A 14 WinAndCursUp
+Key Down  A 14 WinAndCursDown
+
+# Same as above but shift + win + alt + arrows and bigger distance (100px).
+Key Left  A S14 WinAndCursLeftS
+Key Right A S14 WinAndCursRightS
+Key Up    A S14 WinAndCursUpS
+Key Down  A S14 WinAndCursDownS
+
+# Shift + Win + Arrows: Resize window.
+Key Right A S4 IncreaseWidth
+Key Left A S4 DecreaseWidth
+Key Down A S4 IncreaseHeight
+Key Up A S4 DecreaseHeight
+
+# Start file manager: Windows key + e.
+Key e A 4 Exec urxvt -e ranger &
+
+# Show root menu from anywhere: Windows key + Escape.
+Key Escape A 4 Menu RootMenu
+
+# Show system root menu from anywhere: Shift + Windows key + Escape.
+Key Escape A S4 Menu System-Menu
+
+# New terminal: Win + Enter.
+Key Return A 4 Exec xterm &
+
+# New terminal with tmux: Shift + Win + Enter.
+Key Return A S4 Exec urxvt &
+
+# == Define Menus ==
+
+# Menu for top left hand ("close") button on windows.
+AddToMenu Window-Ops2 
++  "Move"     Move
++  "Resize"   Resize
++  ""         Nop
++  "Delete"   Delete
++  "Close"    Close
++  "Destroy"  Destroy
+
+# Root System Menu (Right click on root window, Win+Shift+Esc).
+AddToMenu System-Menu 
++  "System"        Title
++  "Lock Screen"   Exec slock &
++  ""              Nop
++  "Resize"        Resize-or-Raise
++  "Move"          Move-or-Raise
++  ""              Nop
++  "Kill"          Destroy
++  "Delete"        Delete
++  ""              Nop
++  "Restart FVWM"  Restart fvwm2
++  ""              Nop
++  "Exit X11"      Popup QuitMenu #Quit
+
+# Submenus to System menu.
+  # - Confirm exiting X11.
+  AddToMenu QuitMenu "Exit X11?" Title
+  +  "No Thanks"    Nop
+  +  "Yes, Exit X"  Quit
+
+# This is the Root Menu (left click on root window, Win+Esc),
+# for launching applications. It will open sub menus defined below.
+AddToMenu RootMenu
++  " Workspace Menu "  Title
++  "XTerm"             Exec xterm &
++  ""                  Nop
++  "Firefox"           Exec firefox-esr &
++  "Thunderbird"       Exec thunderbird &
++  "HexChat"           Exec hexchat &
++  "Qbittorrent"       Exec qbittorrent &
++  "Transmission"      Exec transmission-gtk &
++  "File Manager"      Exec urxvt -e mc &
++  ""                  Nop
++  "Volume Mixer"      Exec xterm -e alsamixer --device pulse &
++  "Audio Panel"       Exec pavucontrol &
++  ""                  Nop
++  "Applications"      Popup UtilsMenu
+
+# Submenus to Root Menu.
+  # Various utilities and applications menu.
+  AddToMenu UtilsMenu
+  +  "Zathura"    exec zathura &
+  +  "Libreoffice"  exec libreoffice &
+  +  "XMag"       exec xmag -source 150x150 &
+  +  "XFontSel"   exec xfontsel &
+
+# == End of config file ==
