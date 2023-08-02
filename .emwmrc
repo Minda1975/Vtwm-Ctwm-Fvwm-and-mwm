@@ -13,21 +13,19 @@ Menu DefaultRootMenu
         "Toggle Behavior..."    f.set_behavior
          no-label               f.separator
         "Restart..."            f.restart
-        "Quit..."               f.quit_mwm
+        "Quit..."               f.quit_wm
 }
 
 
 Menu progs
 {
         "Programs"              f.title
-	"Home"                  f.exec "xfile $HOME"
         "Firefox"               f.exec "firefox-esr"
         "Dillo"                 f.exec "dillo"
         "Qbittorrent"		f.exec "qbittorrent"
         "Volume"                f.exec "xterm -e alsamixer"
-	"Office"                f.exec "libreoffice"
-	"Music"                 f.exec "audacious"
         "Nedit"                 f.exec "nedit"
+        "File"                  f.exec "xfile"
 }
 
 Menu terms
@@ -35,7 +33,6 @@ Menu terms
         "Terms"                 f.title
         "xterm"                 f.exec "xterm"
         "Urxvt"                 f.exec "urxvt"
-        "Run"                   f.exec "dmenu_run"
 }
 
 #

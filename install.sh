@@ -6,16 +6,16 @@
 sudo apt install -y xorg xterm rxvt-unicode
 
 #WM
-sudo apt install -y vtwm suckless-tools xautolock
+sudo apt install -y suckless-tools xautolock nedit screen
 
 #Other stuff
 sudo apt install -y dunst libnotify-bin feh
 
 # File Manager (eg. pcmanfm,krusader)
-sudo apt install -y w3m mc ranger atool caca-utils python3-pygments mediainfo poppler-utils
+sudo apt install -y w3m mc 
 
 # Network File Tools/System Events
-sudo apt install -y dialog mtools dosfstools avahi-daemon udisks2
+sudo apt install -y udisks2
 
 # Neofetch/HTOP
 sudo apt install -y neofetch htop lm-sensors smartmontools
@@ -25,7 +25,7 @@ sudo apt install -y imagemagick scrot gnome-icon-theme rar unrar p7zip-full p7zi
 
 
 # Browser and Mail client Installation (eg. chromium)
-sudo apt install -y firefox-esr thunderbird dillo 
+sudo apt install -y firefox-esr dillo 
 
 # Aditional packages
 sudo apt install -y zathura zathura-djvu  
@@ -40,7 +40,10 @@ sudo apt install -y mpv alsa-utils audacious
 sudo apt install -y qbittorrent transmission-gtk
 
 #Install Office packages
-sudo apt install -y libreoffice-writer libreoffice-gtk3 
+sudo apt install -y libreoffice-writer libreoffice-gtk3  
+
+#Nvidia
+sudo apt install -y nvidia-detect  linux-headers-amd64
 
 sudo apt autoremove
 
