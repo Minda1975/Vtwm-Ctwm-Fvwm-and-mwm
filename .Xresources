@@ -1,0 +1,162 @@
+! Xft --------------------------------------------------
+Xft.dpi:				96
+Xft.autohint:				0
+Xft.antialias:				1
+Xft.hinting:				1
+Xft.rgba:				rgb
+Xft.hintstyle:				hintslight
+Xft.lcdfilter:				lcddefault
+
+
+! XTerm ------------------------------------------------
+XTerm*utf8:				1
+XTerm*utf8Title:			true
+XTerm*termName:				xterm-256color
+XTerm*loginShell:			true
+XTerm*activeIcon:			false
+XTerm*faceName:				DejaVu Sans Mono:size=10
+XTerm*geometry:				77x22
+XTerm*saveLines:			10000
+XTerm*visualBell:			true
+XTerm*cursorBlink:			false
+XTerm*cursorColor:			#00FF00
+XTerm*scrollBar:			false
+XTerm*rightScrollBar:			true
+XTerm*scrollbar.width:			17
+XTerm*scrollBarBorder:			2
+XTerm*Scrollbar*background:		#ADADAD
+XTerm*scrollKey:			true
+XTerm*multiScroll:			true
+XTerm*scrollTtyOutput:			false
+XTerm*internalBorder:			2
+XTerm*borderWidth:			1
+XTerm*borderColor:			#000000
+XTerm*metaSendsEscape:			true
+! CHARACTER CLASSES treated as words parts (!, # $ %, +, - . /, \, ~)
+XTerm*charClass:			33:48, 35-37:48, 43:48, 45-47:48, 92:48, 126:48
+! /usr/include/X11/keysymdef.h
+XTerm*VT100*translations:    #override \
+	Alt <Key>Return: ignore() \n\
+	<Key>F11: fullscreen(toggle) \n\
+	Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>S: set-scrollbar(toggle) \n\
+	Ctrl Shift <Key>R: set-reverse-video(toggle)
+
+XTerm*background:       ivory3
+XTerm*cursorColor:      black
+
+
+! URxvt ------------------------------------------------
+!URxvt.termName:			rxvt-256color
+URxvt.termName:				rxvt-unicode
+URxvt.loginShell:			true
+URxvt.font:				xft:DejaVu Sans Mono:slant=0:weight=100:size=10:antialias=True:autohint=True
+URxvt.depth:				32
+URxvt.background:			[77]#0D0D0D
+URxvt.foreground:			#ffffff
+URxvt.internalBorder:			3
+URxvt.borderColor:			[85]#0D0D0D
+URxvt.cursorBlink:			false
+URxvt.cursorUnderline:			false
+URxvt.cursorColor:			#00FF00
+URxvt.visualBell:			true
+URxvt.geometry:				77x22
+URxvt.saveLines:			15000
+URxvt.letterSpace:			-1
+URxvt.cutchars:				"'"'"''`''‘''’''«''»'()<>[]{}|=,;:&?*@^
+URxvt.tripleclickwords:			false
+URxvt.skipBuiltinGlyphs:		false
+URxvt.scrollTtyOutput:			false
+URxvt.jumpScroll:			true
+URxvt.scrollTtyKeypress:		true
+URxvt.scrollWithBuffer:			true
+URxvt.scrollBar:			false
+URxvt.thickness:			10
+! disable ctrl+shift key binding
+URxvt.iso14755:				false
+! URxvt.perl-lib:			/usr/local/lib/urxvt/perl/
+! URxvt eval extension: ctrl+shift+c/v to copy/paste
+URxvt.perl-ext-common:			eval
+URxvt.keysym.Shift-Control-V:		eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:		eval:selection_to_clipboard
+! emulate some XTerm key sequences
+URxvt.keysym.Home:			\033OH
+URxvt.keysym.End:			\033OF
+URxvt.keysym.M-Home:			\033[1;3H
+URxvt.keysym.M-End:			\033[1;3F
+URxvt.keysym.M-Delete:			\033[3;3~
+URxvt.keysym.Page_Up:			\033[5~
+URxvt.keysym.Page_Down:			\033[6~
+URxvt.keysym.C-Page_Up:			\033[5;5~
+URxvt.keysym.C-Page_Down:		\033[6;5~
+URxvt.keysym.C-M-Page_Up:		\033[5;7~
+URxvt.keysym.C-M-Page_Down:		\033[6;7~
+URxvt.keysym.M-Page_Up:			\033[5;3~
+URxvt.keysym.M-Page_Down:		\033[6;3~
+URxvt.keysym.S-M-C-Page_Up:		\033[5;8~
+URxvt.keysym.S-M-C-Page_Down:		\033[6;8~
+URxvt.keysym.M-Up:			\033[1;3A
+URxvt.keysym.M-Down:			\033[1;3B
+URxvt.keysym.M-Left:			\033[1;3D
+URxvt.keysym.M-Right:			\033[1;3C
+URxvt.keysym.C-Up:			\033[1;5A
+URxvt.keysym.C-Down:			\033[1;5B
+URxvt.keysym.C-Left:			\033[1;5D
+URxvt.keysym.C-Right:			\033[1;5C
+URxvt.keysym.S-Up:			\033[1;2A
+URxvt.keysym.S-Down:			\033[1;2B
+URxvt.keysym.S-Left:			\033[1;2D
+URxvt.keysym.S-Right:			\033[1;2C
+URxvt.keysym.C-S-Up:			\033[1;6A
+URxvt.keysym.C-S-Down:			\033[1;6B
+URxvt.keysym.C-S-Left:			\033[1;6D
+URxvt.keysym.C-S-Right:			\033[1;6C
+URxvt.keysym.S-M-Up:			\033[1;4A
+URxvt.keysym.S-M-Down:			\033[1;4B
+URxvt.keysym.S-M-Left:			\033[1;4D
+URxvt.keysym.S-M-Right:			\033[1;4C
+URxvt.keysym.C-M-Up:			\033[1;7A
+URxvt.keysym.C-M-Down:			\033[1;7B
+URxvt.keysym.C-M-Left:			\033[1;7D
+URxvt.keysym.C-M-Right:			\033[1;7C
+
+! Color scheme ----------------------------
+! BLACK
+*color0:				#000000
+*color8:				#808080
+! RED
+*color1:				#870000
+*color9:				#d70000
+! GREEN
+*color2:				#008700
+*color10:				#00d700
+! YELLOW
+*color3:				#d78700
+*color11:				#d7d700
+! BLUE
+*color4:				#000087
+*color12:				#0000d7
+! MAGENTA
+*color5:				#8700d7
+*color13:				#d700d7
+! CYAN
+*color6:				#0087d7
+*color14:				#00d787
+! WHITE
+*color7:				#d7d7d7
+*color15:				#ffffff
+
+*.renderTable: variable
+*.renderTable.variable.fontName: Sans
+*.renderTable.variable.fontSize: 8
+*.renderTable.variable.fontType: FONT_IS_XFT
+Mwm*xclock.clientDecoration: -resizeh -maximize
+Mwm*iconBoxSBDisplayPolicy:     horizontal
+Mwm*useIconBox:			True
+Mwm*iconBoxGeometry:		10x1+160-0
+Mwm*iconBoxTitle:		MWM Icon Manager
+Mwm*iconPlacement:		left top
+Mwm*fadeNormalIcon:		True
+Mwm*background:			CadetBlue
+Mwm*activeBackground:		LightSalmon
