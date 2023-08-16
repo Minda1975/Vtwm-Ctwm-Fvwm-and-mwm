@@ -1,0 +1,17 @@
+#!/usr/local/plan9/bin/rc
+
+xautolock -time 10 -locker "i3lock" &
+
+# clock in lower right corner
+xclock  -geometry 164x164-40-20 &
+
+# terminal
+#9term &
+
+# stats 
+#stats -W 400x100 -lCme &
+
+# browser
+#opera --nomail &
+
+#acme &

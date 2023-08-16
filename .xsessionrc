@@ -1,71 +1,25 @@
 #!/bin/bash
 
-# Set classic root window cursor
-#xsetroot -cursor_name X_cursor
+nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+
+nvidia-settings -a 'AllowFlipping=0'
+
+picom --config /home/mindaugas/.config/picom/picom.conf &
+
+
+hsetroot -tile Pictures/wall/egypt.jpg
 
 setxkbmap -layout "us,lt,ru" -option "grp:alt_shift_toggle"
 
-#xrdb -merge ~/.Xresources
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-# Enable/disable clock/meters
-#METERS=1
+xautolock -time 10 -locker "i3lock" &
 
-# Clock/Meter style
-#SMALLMETERS=0
+#gkrellm &
 
-# Background Colour
-#ROOTCOL="#607080"
-#ROOTCOL="teal"
-#ROOTCOL="#696969"
-#ROOTCOL="deepskyblue4"
-#ROOTCOL="steelblue4"
-#ROOTCOL="gray50"
-#ROOTCOL="#0D0D0D"
-#ROOTCOL="DarkGrey"
-#ROOTCOL="DodgerBlue4"
+#exec /home/mindaugas/git/emwm/src/emwm
+plumber 
+riostart 
+exec rio -term xterm 
+sleeper
 
-# Background Image, trumps ROOTCOL
-#ROOTPIC="bluebak.png"
-
-# Clock and Load background
-#BGCOL="gray"
-
-# Clock and Load foreground
-#FGCOL="black"
-
-# xclock width
-#CLOCKWIDTH="120"
-#CLOCKWIDTH="119"
-
-#xsetroot -solid "$ROOTCOL"
-
-#if [ $METERS = 1 ]; then
-# if [ $SMALLMETERS = 1 ]; then
-    # Clock: Small
-#  exec xclock -digital -strftime " %H:%M" -face "Terminus:size=17" \
-# -bg "$BGCOL" -fg "$FGCOL" -geometry 90x30-7+4 -padding 5 &
-#else
-    # Clock: Large
-# CLOCKGEOM="x30-0+0"
-#exec xclock -digital -strftime "   %H:%M" -face "Liberation Mono:size=13" \
-#-bg "$BGCOL" -fg "$FGCOL" -geometry "$CLOCKWIDTH$CLOCKGEOM" -padding 5 &
-# fi
-#fi
-
-#xclock  -geometry 164x164-40-20 &
-
-xbanish &
-
-#xload -bg grey -fg black -nolabel -geometry 119x120-0+32 &
-
-xautolock -time 10 -locker "slock" &
-
-#exec mwm
-#plumber 
-#riostart 
-#exec rio -term xterm 
-#sleeper
-#exec /home/mench/.local/bin/flwm
-#exec 9wm -term urxvt
-exec blackbox
-#exec emwm

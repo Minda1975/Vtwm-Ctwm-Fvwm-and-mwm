@@ -1,50 +1,3 @@
-! Xft --------------------------------------------------
-Xft.dpi:				96
-Xft.autohint:				0
-Xft.antialias:				1
-Xft.hinting:				1
-Xft.rgba:				rgb
-Xft.hintstyle:				hintslight
-Xft.lcdfilter:				lcddefault
-
-
-! XTerm ------------------------------------------------
-XTerm*utf8:				1
-XTerm*utf8Title:			true
-XTerm*termName:				xterm-256color
-XTerm*loginShell:			true
-XTerm*activeIcon:			false
-XTerm*faceName:				DejaVu Sans Mono:size=10
-XTerm*geometry:				77x22
-XTerm*saveLines:			10000
-XTerm*visualBell:			true
-XTerm*cursorBlink:			false
-XTerm*cursorColor:			#00FF00
-XTerm*scrollBar:			false
-XTerm*rightScrollBar:			true
-XTerm*scrollbar.width:			17
-XTerm*scrollBarBorder:			2
-XTerm*Scrollbar*background:		#ADADAD
-XTerm*scrollKey:			true
-XTerm*multiScroll:			true
-XTerm*scrollTtyOutput:			false
-XTerm*internalBorder:			2
-XTerm*borderWidth:			1
-XTerm*borderColor:			#000000
-XTerm*metaSendsEscape:			true
-! CHARACTER CLASSES treated as words parts (!, # $ %, +, - . /, \, ~)
-XTerm*charClass:			33:48, 35-37:48, 43:48, 45-47:48, 92:48, 126:48
-! /usr/include/X11/keysymdef.h
-XTerm*VT100*translations:    #override \
-	Alt <Key>Return: ignore() \n\
-	<Key>F11: fullscreen(toggle) \n\
-	Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
-	Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
-	Ctrl Shift <Key>S: set-scrollbar(toggle) \n\
-	Ctrl Shift <Key>R: set-reverse-video(toggle)
-
-XTerm*background:       ivory3
-XTerm*cursorColor:      black
 
 
 ! URxvt ------------------------------------------------
@@ -147,10 +100,7 @@ URxvt.keysym.C-M-Right:			\033[1;7C
 *color7:				#d7d7d7
 *color15:				#ffffff
 
-*.renderTable: variable
-*.renderTable.variable.fontName: Sans
-*.renderTable.variable.fontSize: 8
-*.renderTable.variable.fontType: FONT_IS_XFT
+
 Mwm*xclock.clientDecoration: -resizeh -maximize
 Mwm*iconBoxSBDisplayPolicy:     horizontal
 Mwm*useIconBox:			True
@@ -160,3 +110,83 @@ Mwm*iconPlacement:		left top
 Mwm*fadeNormalIcon:		True
 Mwm*background:			CadetBlue
 Mwm*activeBackground:		LightSalmon
+
+!##############################################################################
+!# Client specific
+!##############################################################################
+Emwm*krita*usePPosition: on
+Emwm*Navigator*overrideGeometry: 1020x980+120+0
+Emwm*XOsview*clientDecoration: border
+Emwm*XOsview*clientFunctions: +minimize resize move
+
+NEdit*inactiveBackground: #b0b0b0
+NEdit*inactiveForeground: #000000
+
+XTerm*faceName: Liberation Mono
+XTerm*faceSize: 10
+
+!##############################################################################
+!# Global X/Motif Setup
+!##############################################################################
+Xft.dpi:  86
+Xcursor.theme: core-hr
+Xcursor.size: 24
+
+*renderTable.variable.fontType: FONT_IS_XFT
+*renderTable.variable.fontName: Liberation Sans
+*renderTable.variable.fontSize: 10
+*renderTable: variable
+
+*renderTable.fixed.fontType: FONT_IS_XFT
+*renderTable.fixed.fontName: Liberation Mono
+*renderTable.fixed.fontSize: 10
+! *XmText*renderTable: fixed
+! *XmTextField*renderTable: fixed
+
+*background: #d2d2d2
+*highlightColor: #5f8ba0
+*XmList.background: #b6b6aa
+*XmText.background: #d3b5b5
+*XmTextField.background: #d3b5b5
+
+*XmFileSelectionBox.width:	320
+*XmFileSelectionBox.height:	480
+
+*enableThinThickness: True
+*enableBtn1Transfer: button2_adjust
+*enableButtonTab: True
+*enableDefaultButton: True
+*enableEtchedInMenu: True
+*enableMenuInCascade: True
+*enableMultiKeyBindings: False
+*enableToggleColor: True
+*enableToggleVisual: False
+*enableDragIcon: False
+*multiClickTime: 260
+*XmScrollBar.width: 14
+*XmScrollBar.height: 14
+
+*XmText*Translations:#override\n\
+	Ctrl<Key>u:delete-to-start-of-line()\n\
+	Ctrl<Key>k:delete-to-end-of-line()\n\
+	Ctrl<Key>a:beginning-of-line()\n\
+	Ctrl<Key>e:end-of-line()\n\
+	Ctrl<Key>p:process-up()\n\
+	Ctrl<Key>b:backward-character()\n\
+	Ctrl<Key>n:process-down()\n\
+	Ctrl<Key>f:forward-character()
+
+*XmTextField*Translations:#override\n\
+	Ctrl<Key>u:delete-to-start-of-line()\n\
+	Ctrl<Key>k:delete-to-end-of-line()\n\
+	Ctrl<Key>a:beginning-of-line()\n\
+	Ctrl<Key>e:end-of-line()\n\
+	Ctrl<Key>b:backward-character()\n\
+	Ctrl<Key>f:forward-character()
+
+!##############################################################################
+!# Window Decorations
+!##############################################################################
+Emwm*client*background: #8C8C8C
+Emwm*client*activeBackground: #aba68c
+Emwm*icon*activeBackground: #aba68c
