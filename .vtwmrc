@@ -1,5 +1,5 @@
 #
-# Personal .vtwmrc Willem Hendriks (NL)
+# Personal .vtwmrc ogis (RU)
 #
 # Control + space 	= launche xterm
 #
@@ -35,7 +35,6 @@ UnknownIcon "monitor.xpm"
 WarpCursor
 
 ShowIconManager
-IconManagerGeometry "+0+117"
 SortIconManager
 IconManagerGeometry "500x19+1-20" 4
 
@@ -67,6 +66,7 @@ NoTitle
 {
 	"VTWM Icon Manager"
         "xclock"
+	"gkrellm"
 	"VTWM Desktop"
 }
 
@@ -86,6 +86,7 @@ IconManagerDontShow
 	"xclock"
 	"xload"
 	"xeyes"
+	"gkrellm"
 }
 
 DontShowInDisplay
@@ -95,6 +96,7 @@ DontShowInDisplay
 	"xclock"
 	"xload"
 	"xeyes"
+	"gkrellm"
 }
 
 DontShowInVtwmWindows
@@ -104,6 +106,7 @@ DontShowInVtwmWindows
 	"xclock"
 	"xload"
 	"xeyes"
+	"gkrellm"
 }
 
 AutoRaise
@@ -200,11 +203,21 @@ Button2 = : virtual | desktop : f.movescreen
 menu "defops"
 {
 "    VTWM    "	f.title
-"Run"           f.exec "~/script/dmenu_run_vertical &"
+"Terminator"    f.exec "terminator &"
 "xterm"		f.exec "xterm &"
 "Firefox"	f.exec "firefox-esr &"
+"Dillo"	        f.exec "dillo &"
 ""		f.nop
-"Mail"	        f.exec "thunderbird &"
+"Qbittorrent"	f.exec "qbittorrent &"
+"Transmission"	f.exec "transmission-gtk &"
+"Files"	        f.exec "xfile &"
+"Image"         f.exec "ximaging &"
+""		f.nop
+"Edit"	        f.exec "nedit &"
+"Emacs"	        f.exec "emacs &"
+"Nvidia"	f.exec "nvidia-settings &"
+"Firewall"      f.exec "gufw &"
+
 ""		f.nop
 "Restart"	f.restart
 "Exit"		f.quit
