@@ -1,11 +1,12 @@
 #!/bin/bash
 
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 nvidia-settings -a 'AllowFlipping=0'
 
 picom --config /home/mindaugas/.config/picom/picom.conf &
-
 
 hsetroot -tile Pictures/wall/egypt.jpg
 
@@ -15,11 +16,4 @@ setxkbmap -layout "us,lt,ru" -option "grp:alt_shift_toggle"
 
 xautolock -time 10 -locker "i3lock" &
 
-#gkrellm &
-
-#exec /home/mindaugas/git/emwm/src/emwm
-plumber 
-riostart 
-exec rio -term xterm 
-sleeper
 

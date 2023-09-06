@@ -3,22 +3,22 @@
 # Install packages after installing base Debian with no GUI
 
 # xorg display server installation and wm
-sudo apt install -y xorg xterm terminator mwm
+sudo apt install -y xorg xterm xfce4-terminal notion
 
 #WM
-sudo apt install -y xscreensaver
+sudo apt install -y xautolock i3lock
 
 #Other stuff
-sudo apt install -y dunst libnotify-bin imagemagick
+sudo apt install -y xfce4-notifyd libnotify-bin imagemagick
 
 # File Manager (eg. pcmanfm,krusader)
 sudo apt install -y w3m mc 
 
 # Network File Tools/System Events
-sudo apt install -y udisks2
+sudo apt install -y udisks2 thunar thunar-volman gvfs gvfs-backends
 
 # Neofetch/HTOP
-sudo apt install -y neofetch htop lm-sensors smartmontools
+sudo apt install -y neofetch btop lm-sensors smartmontools
 
 # Various utilities
 sudo apt install -y gnome-icon-theme rar unrar p7zip-full p7zip-rar zip unzip lxappearance
@@ -28,7 +28,7 @@ sudo apt install -y gnome-icon-theme rar unrar p7zip-full p7zip-rar zip unzip lx
 sudo apt install -y firefox-esr dillo 
 
 # Aditional packages
-sudo apt install -y zathura zathura-djvu  
+sudo apt install -y zathura zathura-djvu gpa 
 
 # Install fonts
 sudo apt install -y fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-liberation xfonts-terminus fonts-jetbrains-mono
@@ -37,13 +37,10 @@ sudo apt install -y fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-libe
 sudo apt install -y mpv alsa-utils moc pipewire-audio pavucontrol
 
 #Torrents
-sudo apt install -y qbittorrent transmission-gtk gufw lxpolkit
+sudo apt install -y qbittorrent transmission-gtk gufw
 
 #Install Office packages
-sudo apt install -y libreoffice-writer libreoffice-gtk3  
-
-#Emwm
-sudo apt install -y build-essential libx11-dev libxt-dev libxext-dev libxrandr-dev libxinerama-dev libmotif-dev libjpeg-dev libpng-dev libtiff-dev
+sudo apt install -y libreoffice-writer libreoffice-gtk3 lightdm 
 
 #Headers
 sudo apt install -y linux-headers-amd64
