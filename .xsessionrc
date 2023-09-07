@@ -8,11 +8,7 @@ nvidia-settings -a 'AllowFlipping=0'
 
 picom --config /home/mindaugas/.config/picom/picom.conf &
 
-hsetroot -tile Pictures/wall/egypt.jpg
-
 setxkbmap -layout "us,lt,ru" -option "grp:alt_shift_toggle"
-
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 xautolock -time 10 -locker "i3lock" &
 

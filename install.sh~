@@ -3,7 +3,7 @@
 # Install packages after installing base Debian with no GUI
 
 # xorg display server installation and wm
-sudo apt install -y xorg xterm tilix
+sudo apt install -y xorg xterm xfce4-terminal notion
 
 #WM
 sudo apt install -y xautolock i3lock
@@ -21,11 +21,11 @@ sudo apt install -y udisks2 thunar thunar-volman gvfs gvfs-backends
 sudo apt install -y neofetch btop lm-sensors smartmontools
 
 # Various utilities
-sudo apt install -y gnome-icon-theme rar unrar p7zip-full p7zip-rar zip unzip lxappearance picom
+sudo apt install -y gnome-icon-theme rar unrar p7zip-full p7zip-rar zip unzip lxappearance
 
 
 # Browser and Mail client Installation (eg. chromium)
-sudo apt install -y firefox-esr chromium 
+sudo apt install -y firefox-esr dillo 
 
 # Aditional packages
 sudo apt install -y zathura zathura-djvu gpa 
@@ -40,13 +40,7 @@ sudo apt install -y mpv alsa-utils moc pipewire-audio pavucontrol
 sudo apt install -y qbittorrent transmission-gtk gufw
 
 #Install Office packages
-sudo apt install -y libreoffice-writer libreoffice-gtk3 lightdm
-
-#Dusk
-sudo apt install -y build-essential libx11-dev libx11-xcb-dev libxcb-res0-dev libxinerama-dev libxft-dev libimlib2-dev libyajl-dev
-
-#Optional
-sudo apt install -y libxfixes-dev libxi-dev 
+sudo apt install -y libreoffice-writer libreoffice-gtk3 lightdm 
 
 #Headers
 sudo apt install -y linux-headers-amd64
